@@ -1,3 +1,5 @@
+//https://habr.com/ru/articles/1006316/
+
 package main
 
 import "knigga/server"
