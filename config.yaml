@@ -1,3 +1,9 @@
+onec:
+  URL: "http://vega64u.mpkabel.ru/erp-copy2/hs/hmi/V1"
+  WriteAPI: "/HMIPost"
+  GetAPI: "/HMIGet"
+  Token: "5656565656565656565"
+
 line92:
   LineIP: "192.168.47.100"
   LineName: "One"

@@ -9,6 +9,14 @@ import (
 
 type GlobalConfig struct {
 	LineCfg `yaml:",inline"`
+	OnecCfg `yaml:",inline"`
+}
+
+type OnecCfg struct {
+	URL      string `yaml:"URL"`
+	WriteAPI string `yaml:"WriteAPI"`
+	GetApi   string `yaml:"GetAPI"`
+	Token    string `yaml:"Token"`
 }
 
 type LineCfg struct {
@@ -29,12 +37,16 @@ func (s *GlobalConfig) loadConfig(path string, linename string) {
 		slog.Error("Ошибка чтения файла!", "%v", err)
 	}
 
-	var yam map[string]GlobalConfig
-	err = yaml.Unmarshal(cfFile, &yam)
-	if err != nil {
-		slog.Error("Ошибка файла конфигурации!", "%v", err)
-
+	var data struct {
+		Onec OnecCfg            `yaml:"onec"`
+		Line map[string]LineCfg `yaml:",inline"`
 	}
 
-	*s = yam[linename]
+	err = yaml.Unmarshal(cfFile, &data)
+	if err != nil {
+		slog.Error("Ошибка файла конфигурации!", "%v", err)
+	}
+
+	s.OnecCfg = data.Onec
+	s.LineCfg = data.Line[linename]
 }
