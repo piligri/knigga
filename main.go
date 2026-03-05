@@ -5,7 +5,7 @@ import (
 	"log/slog"
 )
 
-var Config GlobalConfig
+var Config *GlobalConfig
 
 func init() {
 	cfName := flag.String("cf", "line92", "Подгрука конфигурации из файла config.yaml")

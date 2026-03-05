@@ -15,7 +15,7 @@ type GlobalConfig struct {
 
 // Структура описания конфигурации подключения к 1с
 type OnecCfg struct {
-	URL      string `yaml:"URL"`      //URL подключения к API !С
+	URL      string `yaml:"URL"`      //URL подключения к API 1С
 	WriteAPI string `yaml:"WriteAPI"` //Адрес функции записи этапа
 	GetApi   string `yaml:"GetAPI"`   //Адрес функции чтения данных
 	Token    string `yaml:"Token"`    //Токен авторизации 1с
@@ -29,8 +29,8 @@ type LineCfg struct {
 }
 
 // Создание базовой конфигурации приложения
-func NewConfig(path, name string) GlobalConfig {
-	var a GlobalConfig
+func NewConfig(path, name string) *GlobalConfig {
+	a := &GlobalConfig{}
 	a.loadConfig(path, name)
 	return a
 }
@@ -39,7 +39,8 @@ func NewConfig(path, name string) GlobalConfig {
 func (s *GlobalConfig) loadConfig(path string, linename string) {
 	cfFile, err := os.ReadFile(path + ".yaml")
 	if err != nil {
-		slog.Error("Ошибка чтения файла!", "%v", err)
+		slog.Error("Ошибка чтения файла!", "Ошибка", err)
+		os.Exit(1)
 	}
 
 	var data struct {
@@ -49,7 +50,8 @@ func (s *GlobalConfig) loadConfig(path string, linename string) {
 
 	err = yaml.Unmarshal(cfFile, &data)
 	if err != nil {
-		slog.Error("Ошибка файла конфигурации!", "%v", err)
+		slog.Error("Ошибка файла конфигурации!", "Ошибка", err)
+		os.Exit(1)
 	}
 
 	s.OnecCfg = data.Onec
