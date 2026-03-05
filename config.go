@@ -28,11 +28,13 @@ func (s *GlobalConfig) loadConfig(path string, linename string) {
 	if err != nil {
 		slog.Error("Ошибка чтения файла!", "%v", err)
 	}
+
 	var yam map[string]GlobalConfig
 	err = yaml.Unmarshal(cfFile, &yam)
 	if err != nil {
 		slog.Error("Ошибка файла конфигурации!", "%v", err)
 
 	}
+
 	*s = yam[linename]
 }
