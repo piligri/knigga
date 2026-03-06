@@ -81,8 +81,10 @@ func (s *GlobalConfig) loadConfig(path string, linename string) {
 	}
 
 	var data struct {
-		Onec OnecCfg            `yaml:"onec"`
-		Line map[string]LineCfg `yaml:",inline"`
+		Onec          OnecCfg            `yaml:"onec"`
+		Line          map[string]LineCfg `yaml:",inline"`
+		OpcDataTags   QRdata             `yaml:"OpcDataTags"`
+		OpcStatusTags QRstatus           `yaml:"OpcStatusTags"`
 	}
 
 	err = yaml.Unmarshal(cfFile, &data)
@@ -93,6 +95,8 @@ func (s *GlobalConfig) loadConfig(path string, linename string) {
 
 	s.OnecCfg = data.Onec
 	s.LineCfg = data.Line[linename]
+	s.QRstatus = data.OpcStatusTags
+	s.QRdata = data.OpcDataTags
 
 	if err := s.validateReq(); err != nil {
 		os.Exit(1)
