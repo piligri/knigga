@@ -31,7 +31,7 @@ func validateData(s any) error {
 
 func main() {
 	slog.Info("Стартуем!", "Конфигурация", Config)
-	spew.Dump("")
+	spew.Dump(Config.Etap)
 	//Для теста записи 1с
 	// val := &RequestData{
 	// 	FioUID:  "56565656-5656-5656-5656-123456789011",
