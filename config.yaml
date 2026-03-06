@@ -13,3 +13,27 @@ line93:
   LineIP: "192.168.47.101"
   LineName: "Two"
   LineUID: "56565656-5656-5656-5656-123456789011"
+
+OpcStatusTags:
+  InitQRWindow: "s=Main_QRStatus_QRBa"
+  FioReadComplite: "s=Main_QRStatus_QRBb"
+  EtapReadComplite: "s=Main_QRStatus_QRBc"
+  EtapProcess: "s=Main_QRStatus_QRBd"
+  EtapEnd: "s=Main_QRStatus_QRBe"
+  AllDataComplite: "s=Main_QRStatus_QRBf"
+  AllDataReadytoWrite: "s=Main_QRStatus_QRBg"
+  NextQRAccept: "s=Main_QRStatus_QRBh"
+  ScanerQREnable: "s=Main_QRStatus_QRBj"
+  QR: "s=Main_QRStatus_QRN"
+
+OpcDataTags:
+  Fio: "s=Main_QRdata_FIO"
+  Etap: "s=Main_QRdata_ETAP"
+  Operacia: "s=Main_QRdata_OPERACIA"
+  Rc: "s=Main_QRdata_RC"
+  Uchastok: "s=Main_QRdata_UCHASTOK"
+  PlanM: "s=Main_QRdata_PLANM"
+  FaktM: "s=Main_QRdata_FAKTM"
+  QRFiao: "s=Main_QRdata_QRFio"
+  QREtap: "s=Main_QRdata_QREtap"
+  
