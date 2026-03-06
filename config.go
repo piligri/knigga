@@ -65,13 +65,6 @@ func (s *GlobalConfig) loadConfig(path string, linename string) {
 	s.OnecCfg = data.Onec
 	s.LineCfg = data.Line[linename]
 
-	// v := validator.New()
-	// if err := v.Struct(s); err != nil {
-	// 	for _, err := range err.(validator.ValidationErrors) {
-	// 		slog.Error("Ошибка валидации", "Ошибка", err.Error(), "Содержимое поля", err.Value())
-	// 		os.Exit(1)
-	// 	}
-	// }
 	if err := s.validateReq(); err != nil {
 		os.Exit(1)
 	}

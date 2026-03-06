@@ -34,7 +34,7 @@ func (s RequestData) validateReq() error {
 
 func get1c(payload any) (map[string]any, error) {
 
-	url := "http://vega64u.mpkabel.ru/erp-copy2/hs/hmi/V1/HMIGet"
+	url := Config.URL + Config.GetApi //"http://vega64u.mpkabel.ru/erp-copy2/hs/hmi/V1/HMIGet"
 
 	method := "GET"
 	// str := payload //fmt.Sprintf("%v", payload)

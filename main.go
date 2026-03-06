@@ -31,17 +31,18 @@ func validateData(s any) error {
 
 func main() {
 	slog.Info("Стартуем!", "Конфигурация", Config)
-
+	spew.Dump("")
 	//Для теста записи 1с
-	val := &RequestData{
-		FioUID:  "56565656-5656-5656-5656-123456789011",
-		EtapUID: "56565656-5656-5656-5656-123456789011",
-		RCUID:   "16565656-5656-5656-5656-123456789011",
-		Metrazh: "1",
-	}
-	res, err := write1c(*val)
-	if err != nil {
-		slog.Error("Ошибка записи в 1с", "", err)
-	}
-	spew.Dump(res)
+	// val := &RequestData{
+	// 	FioUID:  "56565656-5656-5656-5656-123456789011",
+	// 	EtapUID: "56565656-5656-5656-5656-123456789011",
+	// 	RCUID:   "16565656-5656-5656-5656-123456789011",
+	// 	Metrazh: "1",
+	// }
+	// res, err := write1c(*val)
+	// if err != nil {
+	// 	slog.Error("Ошибка записи в 1с", "", err)
+	// }
+	// spew.Dump(res)
+
 }
